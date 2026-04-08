@@ -22,11 +22,15 @@ public class Prodotto {
 
     float getBasePrice() {
         return this.prezzo;
-    } 
+    }
 
     float getTaxedPrice() {
         float productIva = this.prezzo * (this.iva / 100);
         float taxedPrice = this.prezzo + productIva;
         return taxedPrice;
+    }
+
+    String getProductName() {
+        return this.codice + "-" + this.nome;
     }
 }
