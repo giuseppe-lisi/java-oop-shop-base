@@ -19,4 +19,14 @@ public class Prodotto {
         this.prezzo = prezzo;
         this.iva = iva;
     }
+
+    float getBasePrice() {
+        return this.prezzo;
+    } 
+
+    float getTaxedPrice() {
+        float productIva = this.prezzo * (this.iva / 100);
+        float taxedPrice = this.prezzo + productIva;
+        return taxedPrice;
+    }
 }
