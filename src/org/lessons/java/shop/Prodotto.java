@@ -1,5 +1,7 @@
 package org.lessons.java.shop;
 
+import java.util.Random;
+
 public class Prodotto {
     public int codice;
     public String nome;
@@ -7,7 +9,10 @@ public class Prodotto {
     public float prezzo;
     public float iva;
 
-    public Prodotto(int codice, String nome, String descrizione, float prezzo, float iva) {
+    public Prodotto(String nome, String descrizione, float prezzo, float iva) {
+        // genera un codice random compreso tra 10 e 50 inclusive
+        Random rand = new Random();
+        int codice = rand.nextInt(10,51);
         this.codice = codice;
         this.nome = nome;
         this.descrizione = descrizione;
