@@ -1,15 +1,17 @@
 package org.lessons.java.shop;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 
 public class Prodotto {
     private int codice;
     private String nome;
     private String descrizione;
-    private float prezzo;
-    private float iva;
+    private BigDecimal prezzo;
+    private BigDecimal iva;
 
-    public Prodotto(String nome, String descrizione, float prezzo, float iva) {
+    public Prodotto(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva) {
         // genera un codice random compreso tra 10 e 50 inclusive
         Random rand = new Random();
         this.codice = rand.nextInt(1001);;
@@ -19,14 +21,15 @@ public class Prodotto {
         this.iva = iva;
     }
 
-    public float getBasePrice() {
+    public BigDecimal getBasePrice() {
         return this.prezzo;
     }
 
-    public float getTaxedPrice() {
-        float productIva = this.prezzo * (this.iva / 100);
-        float taxedPrice = this.prezzo + productIva;
-        return taxedPrice;
+    public BigDecimal getTaxedPrice() {
+        if (prezzo != null && iva != null) {
+            return prezzo.add(prezzo.multiply(iva)).setScale(2, RoundingMode.DOWN);
+        }
+        return null;
     }
 
     public String getProductName() {
