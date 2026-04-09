@@ -11,6 +11,22 @@ public class Prodotto {
     private BigDecimal prezzo;
     private BigDecimal iva;
 
+    // 3 possibili metodi costruttori
+    public Prodotto(String nome) {
+        // genera un codice random compreso tra 10 e 50 inclusive
+        Random rand = new Random();
+        this.codice = rand.nextInt(1001);;
+        this.nome = nome;
+    }
+
+    public Prodotto(String nome, String descrizione) {
+        // genera un codice random compreso tra 10 e 50 inclusive
+        Random rand = new Random();
+        this.codice = rand.nextInt(1001);;
+        this.nome = nome;
+        this.descrizione = descrizione;
+    }
+
     public Prodotto(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva) {
         // genera un codice random compreso tra 10 e 50 inclusive
         Random rand = new Random();
@@ -34,5 +50,9 @@ public class Prodotto {
 
     public String getProductName() {
         return this.codice + "-" + this.nome;
+    }
+
+    public int getCode() {
+        return this.codice;
     }
 }
