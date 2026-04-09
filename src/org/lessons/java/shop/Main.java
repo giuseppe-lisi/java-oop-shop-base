@@ -9,6 +9,7 @@ public class Main {
         System.out.println("Costo base: " + banana.getBasePrice());
         System.out.println("Costo comprensivo di iva: " + banana.getTaxedPrice());
         System.out.println("Codice e nome prodotto: " + banana.getProductName());
-        System.out.println(banana.getCode());
+        banana.setNome("zucchina");
+        System.out.println(banana.getNome());
     }
 }

@@ -40,19 +40,56 @@ public class Prodotto {
     public BigDecimal getBasePrice() {
         return this.prezzo;
     }
-
+    
     public BigDecimal getTaxedPrice() {
         if (prezzo != null && iva != null) {
             return prezzo.add(prezzo.multiply(iva)).setScale(2, RoundingMode.DOWN);
         }
         return null;
     }
-
+    
     public String getProductName() {
         return this.codice + "-" + this.nome;
     }
-
-    public int getCode() {
+    
+    // metodi mutators e accessor
+    public int getCodice() {
         return this.codice;
+    }
+
+    public void setCodice(int codice) {
+        this.codice = codice;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescrizione() {
+        return this.descrizione;
+    }
+
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
+    }
+
+    public BigDecimal getPrezzo() {
+        return this.prezzo;
+    }
+
+    public void setPrezzo(BigDecimal prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    public BigDecimal getIva() {
+        return this.iva;
+    }
+
+    public void setIva(BigDecimal iva) {
+        this.iva = iva;
     }
 }
